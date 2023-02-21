@@ -1,0 +1,321 @@
+.absolute{
+    position:absolute;
+}
+
+.blackeffect{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.8);
+}
+
+.blackeffect .card{
+    margin: 0 16px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    background-color: white;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 3px;
+    position: relative;
+    height: 600px;
+    padding: 16px 20px;
+}
+body{
+    font-size: 14px;
+}
+
+button {
+    border: 0px;
+}
+
+.bikes{
+    padding-left:183px;
+}
+
+.cars{
+    padding-left:100px;
+}
+
+.carsul{
+    display:inline-block;
+}
+
+.carregister{
+    background-color: aqua;
+    list-style: none;
+}
+.cardArr{
+    box-sizing: border-box;
+    padding:3px;
+}
+
+.electronics{
+    padding-left:30px;
+}
+.fixed{
+    position:fixed;
+}
+
+.form-container {
+    margin: auto;
+    width: 700px;
+    border: 1px solid #a79b9b6b;
+    padding: 10px 0px;
+    z-index: 7;
+    box-shadow: 3px 3px 0px 5px #aba4a424;
+    border-radius: 5px;
+}
+
+.flex{
+    display:flex;
+}
+
+.furniture{
+    padding-left:150px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin:0px;
+    padding:0px;
+    font-weight:normal;
+}
+
+.headernormal{
+    top:0px;
+    left:0px;
+    right:0px;
+    height:70px;
+    z-index:9;
+    background:#f1f1f1;
+    box-shadow:0px 2px 2px #dadada;
+    align-items: center;
+    padding:0px 8%;
+  }
+.headernormal .arrow{
+    margin-top:30px;
+}
+.headernav .viewcategories{
+    border:0px;
+    background-color: rgba(0, 0, 0, 0);
+    padding:10px 15px;
+}
+
+.headernav .viewcategories .arrow{
+    background-color:rgba(0, 0, 0, 0);
+    padding:3px 10px;
+    margin-left:10px;
+
+}
+
+.h4class{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size:20px;
+}
+
+.headernav a{
+    margin-right:10px;
+}
+
+.logini{
+    display:inline-block;
+    width:30px;
+}
+
+.logininput{
+    border:1px solid skyblue;
+    padding:10px 5px;
+    margin-top:20px;
+    outline:2px solid skyblue;
+}
+
+.loginnote{
+    padding-left:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: rgb(245, 245, 83);
+    border-radius: 10px;
+    margin-top:25px;
+    font-weight:600 ;
+}
+
+.loginbutton{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    font-size:18px;
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: rgb(143, 244, 143);
+}
+input {
+    padding: 3px;
+    border: 0px;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+label {
+   padding-left:2px;
+   font-size:15px;
+}
+
+.loginarrow{
+  top:0px;
+  left:0px;
+}
+
+.logincross{
+   top:0px;
+   right:0px;
+}
+
+.includedetails{
+    font-size:20px;
+    font-weight: 700;
+}
+
+.itemsearch input{
+    width:80%;
+}
+
+.listingdisplay{
+    margin-top:125px;
+}
+
+.location {
+    width: 220px;
+    border: 2px solid black;
+    padding-left:10px ;
+}
+
+.location li{
+    list-style:none;
+    background-color: white;
+    width:180px;
+    padding:2px 20px;
+}
+
+.location li:hover{
+    list-style:none;
+    background-color:#bbeaf3;
+    width:180px;
+    padding:2px 20px;
+}
+
+.mobiles{
+    padding-left:172px;
+}
+
+.relative{
+    position:relative;
+}
+
+.post{
+      text-align: center;
+      font-family: Helvetica sans-serif;
+      font-weight: 600;
+      font-size:25px;
+}
+.postadcard{
+    top:250px;
+    left:200px;
+    z-index:8;
+    height:500px;
+    box-shadow:10px 10px 5px 12px lightblue;
+    border-radius:5px;
+    margin:0px 200px;
+}
+
+.postcac{
+    padding-left:50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size:19px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.postcacli{
+    list-style:none;
+    padding-top:7px;
+    border:1px solid grey;
+    font-size:18px;
+    display:inline-block;
+}
+
+.postcacli:hover{
+    background-color: #bbeaf3;
+}
+
+.postcacul{
+    margin-left:0px;
+    width: 300px;
+    padding-left:3px;
+    display:inline-block;
+}
+
+.postcacbutton{
+    background-color: white;
+}
+
+.postcacbutton:hover{
+    background-color: #bbeaf3;
+}
+
+.postcacbuttonicon{
+    padding-right:20px;
+}
+
+
+.sell {
+    padding: 5px;
+    border: 3px solid;
+    border-top-color: blue;
+    border-left-color: blue;
+    border-right-color: yellow;
+    border-bottom-color: orange;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.s14{
+    font-size: 14px;
+}
+
+.services{
+    padding-left:163px;
+}
+
+.sticky{
+    position:sticky;
+}
+
+.selectedCategory{
+    font-size:20px;
+    font-weight: 600;
+}
+
+
+
+ul {
+    margin-top:3px;
+    padding-left: 13px;
+}
+
+
+
+
+
+
+
