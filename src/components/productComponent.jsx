@@ -22,15 +22,16 @@ const ProductComponent = () => {
     if(products)
     {
         renderitems = products && products.map((item) => {
-        console.log("D:/carsimages/"+item.uploadphoto);
+            console.log(products);
             return (
                 <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                     <div className="cardArr">
                     <div className="card">
-                    <img src={require(`D:/carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                    <img src={require(`C:/Users/gangavarapu.deep/olximages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 className="card-title">{item.setaprice}</h5>
+                        <p className="card-text">{item.brand}-{item.kmdriven}</p>
+                        <p className="card-text">{item.adtitle}</p>
                         <a href="/" className="btn btn-primary">Go somewhere</a>
                     </div>
                     </div>

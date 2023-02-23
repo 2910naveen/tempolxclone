@@ -5,6 +5,8 @@ import ProductListing from './components/productlisting';
 import ChooseACategory from './pages/chooseacategory';
 import CarRegister from './pages/carRegistration';
 import Login from './components/Login';
+import EnterOTP from './components/enterOTP';
+import Register from './components/register';
 
 
 function App() {
@@ -15,12 +17,14 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
-       {path === 'chooseacategory' ? '':<Header />}
+       {(path === 'chooseacategory' || path === 'carregister')? '':<Header />}
        <Routes>
          <Route path="/" element={<ProductListing/>} />
          <Route path="/chooseacategory" element={<ChooseACategory/>} />
          <Route path="/carregister" element={<CarRegister/>} />
          <Route path="/login" element={<Login/>} />
+         <Route path="/enterotp" element={<EnterOTP/>} />
+         <Route path="/register" element={<Register/>} />
        </Routes>
      </BrowserRouter>
     </div>

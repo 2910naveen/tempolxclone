@@ -58,6 +58,23 @@ button {
     padding:3px;
 }
 
+.displayMsgsuccess{
+    text-align:center;
+    color:green;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.displayMsgerror{
+    text-align:center;
+    color:red;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.displayemptymessage{
+    color:red;
+}
 .electronics{
     padding-left:30px;
 }
@@ -277,6 +294,34 @@ label {
     padding-right:20px;
 }
 
+.registerbackground{ 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 10; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(0,0,0,.8); 
+    transform: translateZ(0);
+}
+
+.registerbox{ 
+    margin: 0 16px; 
+    width: 100%; 
+    display: flex; 
+    box-sizing: border-box; 
+    flex-direction: column; 
+    background-color: white; 
+    width: 400px; 
+    overflow: hidden; 
+    border-radius: 3px;
+    position: relative; 
+    height: 600px; 
+    padding: 16px 20px;
+}
 
 .sell {
     padding: 5px;
