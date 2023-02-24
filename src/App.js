@@ -7,6 +7,7 @@ import CarRegister from './pages/carRegistration';
 import Login from './components/Login';
 import EnterOTP from './components/enterOTP';
 import Register from './components/register';
+import MotorCycleRegister from './pages/bikeRegistration';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
          <Route path="/login" element={<Login/>} />
          <Route path="/enterotp" element={<EnterOTP/>} />
          <Route path="/register" element={<Register/>} />
+         <Route path="/motorcycleregister" element={<MotorCycleRegister />} />
        </Routes>
      </BrowserRouter>
     </div>

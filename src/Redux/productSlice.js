@@ -11,7 +11,9 @@ export const getProductsFromDB = createAsyncThunk("getProductsFromDB",async ()=>
 }) 
 
 
-
+export const postmotorcycledetails = createAsyncThunk("postmotorcycledetails",async (product)=>{
+    return await axios.post("http://localhost:5000/olx/postmotorcycledetails",product).then(res=>console.log(res)).catch(err=>console.log(err));
+})
 
 export const postcardetails = createAsyncThunk("postcardetails",async (product)=>{
    console.log("inside postcardetails");
