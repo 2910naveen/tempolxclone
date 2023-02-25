@@ -8,6 +8,8 @@ import Login from './components/Login';
 import EnterOTP from './components/enterOTP';
 import Register from './components/register';
 import MotorCycleRegister from './pages/bikeRegistration';
+import MobilePhoneRegister from './pages/mobilephoneRegistration'
+import ComponentDetails from './pages/componentDetails';
 
 
 function App() {
@@ -18,7 +20,6 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
-       {(path === 'chooseacategory' || path === 'carregister')? '':<Header />}
        <Routes>
          <Route path="/" element={<ProductListing/>} />
          <Route path="/chooseacategory" element={<ChooseACategory/>} />
@@ -27,6 +28,8 @@ function App() {
          <Route path="/enterotp" element={<EnterOTP/>} />
          <Route path="/register" element={<Register/>} />
          <Route path="/motorcycleregister" element={<MotorCycleRegister />} />
+         <Route path="/mobilephoneregister" element={<MobilePhoneRegister />} />
+         <Route path="/displayproduct" element={<ComponentDetails />} />
        </Routes>
      </BrowserRouter>
     </div>

@@ -45,6 +45,18 @@ button {
     padding-left:100px;
 }
 
+.cardetails{
+   display: inline;
+   padding-right:50px;
+   padding-left:50px;
+   
+}
+
+.carsymbol{
+    margin-left:10px;
+    font-size:20px;
+}
+
 .carsul{
     display:inline-block;
 }
@@ -58,6 +70,17 @@ button {
     padding:3px;
 }
 
+.contactdetails{
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.description{
+    padding-left:20px;
+    font-size:large;
+    font-weight:400;
+}
 .displayMsgsuccess{
     text-align:center;
     color:green;
@@ -292,6 +315,32 @@ label {
 
 .postcacbuttonicon{
     padding-right:20px;
+}
+
+.productimagebg{
+    height: 400px;
+    background-color: #2f2e2e33;
+}
+
+.productimage{
+    height: 350px;
+    background-color: #2f2e2e33;
+    margin-top:25px;
+}
+
+.productadtitle{
+    font-size: 30px;
+    font-weight: 700;
+    padding-top:10px;
+    padding-left:25px;
+}
+
+.productdetailsblock1{
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right:5px;
 }
 
 .registerbackground{ 

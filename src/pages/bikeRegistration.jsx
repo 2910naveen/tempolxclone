@@ -2,9 +2,11 @@ import '../styles/props.css';
 import {useState} from 'react';
 import {postmotorcycledetails} from '../Redux/productSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const MotorCycleRegister = () => {
 
+    const navigate = useNavigate(-1);
     const dispatch = useDispatch();
     const [click,setClick] = useState();
     const [submitMsg,setSubmitMsg] = useState();
@@ -79,7 +81,7 @@ const MotorCycleRegister = () => {
     return (<>
         {/* Header */}
         <header className="headernormal">
-            <div className="fa-solid fa-arrow-left arrow"></div>
+            <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
         </header>
         {/* form */}
         <p className="post">POST YOUR AD</p>
