@@ -1,21 +1,35 @@
 import React from 'react';
 import '../styles/props.css';
 import {useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updatestatusofuser } from '../Redux/productSlice';
 
 const EnterOTP = ()=>
 { 
     const [otp,setOTP] = useState(''); 
     const [display,setDisplay] = useState(''); 
     const [success,setSuccess] = useState(''); 
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // get an otp from register page and verify that OTP 
-    const verifyOTP = () =>
+    const verifyOTP = async () =>
     { 
         setDisplay(true); 
         setSuccess(false); 
-    //     if(otp ==== otpgotfromregiter)
-    //     { set success to true 
-    //         else set success to false 
+        console.log(otp+" "+location.state.otp)
+        if(parseInt(otp) === parseInt(location.state.otp))
+        {
+            setSuccess(true);
+            await dispatch(updatestatusofuser(location.state));
+            navigate("/")
+        }
+        else
+        {
+            setSuccess(false);
+        }
     } 
             return( <div className="registerbackground"> 
                    <div className="registerbox"> 

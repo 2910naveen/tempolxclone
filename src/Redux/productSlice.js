@@ -19,6 +19,11 @@ export const getmotorcycledetails  = createAsyncThunk("getmotorcyclesdetails",as
 export const getmobilephonesdetails = createAsyncThunk("getmobilephonesdetail",async ()=>
    await axios.get("http://localhost:5000/olx/getmobilephonedetails").then((res)=>res).catch((err)=>err)
 )
+
+export const postUserRegisterDetails = createAsyncThunk("postuserregisterdetails",async (user)=>{
+   await axios.post("http://localhost:5000/olx/postuserregisterdetails",user).then(res=>console.log(res)).catch(err=>console.log(err));
+})
+
 export const postmotorcycledetails = createAsyncThunk("postmotorcycledetails",async (product)=>{
     return await axios.post("http://localhost:5000/olx/postmotorcycledetails",product).then(res=>console.log(res)).catch(err=>console.log(err));
 })
@@ -33,6 +38,10 @@ export const postcardetails = createAsyncThunk("postcardetails",async (product)=
    console.log("inside postcardetails");
    return await axios.post("http://localhost:5000/olx/postcarproductdetails",product).then((res)=>console.log(res)).catch(err=>console.log(err))
 });
+
+export const updatestatusofuser = createAsyncThunk("updatestatusofuser",async (user)=>
+  await axios.put("http://localhost:5000/olx/updatestatusofuser",user).then((res)=>console.log(res)).catch((err)=>console.log(err))
+);
 
 const ProductSlice = createSlice({
     name:"productslice",

@@ -10,6 +10,9 @@ import Register from './components/register';
 import MotorCycleRegister from './pages/bikeRegistration';
 import MobilePhoneRegister from './pages/mobilephoneRegistration'
 import ComponentDetails from './pages/componentDetails';
+import RenderCars from './pages/displayCars';
+import RenderMobiles from './pages/displaymobilephones';
+import RenderBikes from './pages/displaymotorcycles';
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
          <Route path="/motorcycleregister" element={<MotorCycleRegister />} />
          <Route path="/mobilephoneregister" element={<MobilePhoneRegister />} />
          <Route path="/displayproduct" element={<ComponentDetails />} />
+         <Route path="/rendercars" element={<RenderCars />} />
+         <Route path="/rendermobilephones" element={<RenderMobiles />} />
+         <Route path="/rendermotorcycles" element={<RenderBikes />} />
        </Routes>
      </BrowserRouter>
     </div>

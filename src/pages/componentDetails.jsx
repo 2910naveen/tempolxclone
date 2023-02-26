@@ -12,7 +12,7 @@ const ComponentDetails = () =>{
             {/* Header */}
             <header className="headernormal">
              <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
-             <center><h3>Product Details</h3></center>
+             <p className="post">Product Details</p>
             </header>
            <div style={{"backgroundColor":"#e1e8e187"}}>
            <div className="row">
