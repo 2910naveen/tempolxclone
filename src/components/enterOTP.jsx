@@ -4,6 +4,7 @@ import {useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updatestatusofuser } from '../Redux/productSlice';
+import { useCustomAuth } from './authContext';
 
 const EnterOTP = ()=>
 { 
@@ -13,6 +14,7 @@ const EnterOTP = ()=>
     const location = useLocation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const auth = useCustomAuth();
 
     // get an otp from register page and verify that OTP 
     const verifyOTP = async () =>
@@ -23,8 +25,9 @@ const EnterOTP = ()=>
         if(parseInt(otp) === parseInt(location.state.otp))
         {
             setSuccess(true);
+            auth.login(location.state.email);
             await dispatch(updatestatusofuser(location.state));
-            navigate("/")
+            setTimeout(()=>{navigate("/")},2000)
         }
         else
         {

@@ -26,7 +26,8 @@ const CarRegister = () => {
                                                           city:'',
                                                           neighbourhood:'',
                                                           username:'',
-                                                          mobilenumber:''
+                                                          mobilenumber:'',
+                                                          email:''
                                                         }); 
     
     const handleChange = (e) =>{
@@ -50,6 +51,7 @@ const CarRegister = () => {
        e.preventDefault();
        setClick(true);
        let nonfilledprop = Object.keys(carPostDetails).filter((prop)=>carPostDetails[prop] === '');
+       console.log(nonfilledprop);
        if(nonfilledprop.length > 0)
        {
            setSubmitMsg(false);
@@ -80,7 +82,8 @@ const CarRegister = () => {
             city:'',
             neighbourhood:'',
             username:'',
-            mobilenumber:''
+            mobilenumber:'',
+            email:''
           });
     }
 
@@ -190,6 +193,8 @@ const CarRegister = () => {
                     </div>
                     <input type="text" className="form-control" name="mobilenumber" id="mobilenumber" placeholder="EnterMobileNumber" onChange={(e)=>handleChange(e)} value={carPostDetails.mobilenumber} required />
                     </div>
+                    <label htmlFor="email">Email*</label>
+                    <input type="text" className="form-control" name="email" id="email" placeholder="EnterEmail" onChange={(e)=>handleChange(e)} value={carPostDetails.email} required />
                     { click && carPostDetails.mobilenumber === '' && !submitted ? <p className="displayemptymessage" >Please enter the Mobilenumber</p> : '' }
                 </div>
                 <center><button name="submit" className="btn btn-primary" id="submit" onClick={(e)=>handleSubmit(e)}>Post Now</button></center>

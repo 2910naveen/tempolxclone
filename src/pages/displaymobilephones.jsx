@@ -15,7 +15,7 @@ export const DisplayMobiles = () =>{
                 <div className="cardArr">
                 <div className="card">
                 <button onClick={()=>navigate("/displayproduct",{state:mobile})}>
-                <img src={require(`D:/carsimages/${mobile.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                <img src={require(`../carsimages/${mobile.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                 </button>
                 <div className="card-body">
                     <h5 className="card-title">{mobile.setaprice}</h5>

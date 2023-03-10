@@ -5,6 +5,7 @@ import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { useSelector,useDispatch} from 'react-redux';
 import { getProductsFromDB,getmotorcycledetails, getmobilephonesdetails} from '../Redux/productSlice';
+import { useCustomAuth } from './authContext';
 
 
 const ProductListing = () => {
@@ -15,7 +16,7 @@ const ProductListing = () => {
                       ];
     const [reduxProducts,setReduxProducts] = useState([]);
     const dispatch = useDispatch();
-
+    const {user,logout} = useCustomAuth();
     var cars = useSelector(state=>state.productreducer.products);
     var bikes = useSelector(state=>state.productreducer.bikes);
     var mobiles = useSelector(state=>state.productreducer.mobiles);
@@ -64,7 +65,7 @@ const ProductListing = () => {
         <div className="header fixed row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <div className="location">
-                    <i className="fa-solid fa-magnifying-glass"></i>
+                    {/* <i className="fa-solid fa-magnifying-glass"></i> */}
                     <input name="location" type="text" placeholder="location" onChange={(e) => handleChange(e)} value={inputSelects.location}></input>
                     <button onClick={() => settoggleLocation(!toggleLocation)}><i className="fa-solid fa-chevron-down"></i></button>
                     {toggleLocation ? <ul style={{ position: "absolute" }}>
@@ -80,14 +81,16 @@ const ProductListing = () => {
                 <button onClick={()=>searchProduct(inputSelects.product)}><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
-                <Link to="/login">Login</Link>
+                {
+                    user ? <Link to="/" onClick={()=>logout()}>Logout</Link> :<Link to='/login'>Login</Link>
+                }
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
                 <Link to="/register">Register</Link>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-1">
                 <div className="sell">
-                    <button><Link to="/chooseacategory"><i className="fa-solid fa-plus"></i>sell</Link></button>
+                    <button><Link to="/chooseacategory" style={{"fontSize":"15px"}}><i className="fa-solid fa-plus"></i>sell</Link></button>
                 </div>
             </div>
         </div>

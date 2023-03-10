@@ -2,8 +2,9 @@ import React from 'react';
 import '../styles/props.css';
 import {useState,useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductsFromDB,getmotorcycledetails, getmobilephonesdetails} from '../Redux/productSlice';
+import { getProductsFromDB,getmotorcycledetails, getmobilephonesdetails,sendinterestedmailtoseller} from '../Redux/productSlice';
 import { useNavigate } from 'react-router-dom';
+import { useCustomAuth } from './authContext';
 
 const ProductComponent = (props) => {
     console.log(props);
@@ -17,6 +18,7 @@ const ProductComponent = (props) => {
     // mobiles = useSelector(state=>state.productreducer.mobiles);
     // var allproducts = [...products,...bikes,...mobiles];
     const dispatch = useDispatch();
+    const {user} = useCustomAuth();
 
     // useEffect(()=>{
     //     const getproducts = async ()=>{
@@ -36,13 +38,12 @@ const ProductComponent = (props) => {
                         <div className="cardArr">
                         <div className="card">
                         <button onClick={()=>navigate("/displayproduct",{state:item})}>
-                        <img src={require(`D:/carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                        <img src={require(`../carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                         </button>
                         <div className="card-body">
-                            <h5 className="card-title">{item.setaprice}</h5>
+                            <h5 className="card-title">{item.setaprice}<span><button title="interested" style={{'marginLeft':'120px',"border":'1px solid black',"backgroundColor":"#f226491f","borderRadius":"5px"}} onClick={()=>dispatch(sendinterestedmailtoseller({mailer:user,receiver:item.email,product:item}))}><i class="fa-solid fa-heart"></i></button></span></h5>
                             <p className="card-text">{item.brand}-{item.kmdriven}</p>
                             <p className="card-text">{item.adtitle}</p>
-                            <a href="/" className="btn btn-primary">Go somewhere</a>
                         </div>
                         </div>
                         </div>
@@ -57,13 +58,12 @@ const ProductComponent = (props) => {
                         <div className="cardArr">
                         <div className="card">
                         <button onClick={()=>navigate("/displayproduct",{state:item})}>
-                        <img src={require(`D:/carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                        <img src={require(`C:/Users/incedo2/Documents/carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                         </button>
                         <div className="card-body">
                             <h5 className="card-title">{item.setaprice}</h5>
                             <p className="card-text">{item.brand}-{item.kmdriven}</p>
                             <p className="card-text">{item.adtitle}</p>
-                            <a href="/" className="btn btn-primary">Go somewhere</a>
                         </div>
                         </div>
                         </div>

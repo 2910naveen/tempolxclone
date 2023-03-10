@@ -21,7 +21,8 @@ const MobilePhoneRegister = () => {
                                                           city:'',
                                                           neighbourhood:'',
                                                           username:'',
-                                                          mobilenumber:''
+                                                          mobilenumber:'',
+                                                          email:''
                                                         }); 
     
     const handleChange = (e) =>{
@@ -70,7 +71,8 @@ const MobilePhoneRegister = () => {
             city:'',
             neighbourhood:'',
             username:'',
-            mobilenumber:''
+            mobilenumber:'',
+            email:''
           })
     }
 
@@ -138,6 +140,7 @@ const MobilePhoneRegister = () => {
                     </div>
                     <input type="text" className="form-control" name="mobilenumber" id="mobilenumber" placeholder="EnterMobileNumber" onChange={(e)=>handleChange(e)} value={mobilePhonePostDetails.mobilenumber} required />
                     </div>
+                    <input type="text" className="form-control" name="email" id="email" placeholder="EnterEmail" onChange={(e)=>handleChange(e)} value={mobilePhonePostDetails.email} required />
                     { click && mobilePhonePostDetails.mobilenumber === '' && !submitted ? <p className="displayemptymessage" >Please enter the Mobilenumber</p> : '' }
                 </div>
                 <center><button name="submit" className="btn btn-primary" id="submit" onClick={(e)=>handleSubmit(e)}>Post Now</button></center>

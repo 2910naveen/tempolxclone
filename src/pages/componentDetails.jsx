@@ -18,7 +18,7 @@ const ComponentDetails = () =>{
            <div className="row">
            <div className="col-2"></div>
            <div className="productimagebg col-8">
-             <center><img src={require(`D:/carsimages/${location.state.uploadphoto}`)} className="productimage"></img></center>
+             <center><img src={require(`C:/Users/incedo2/Documents/carsimages/${location.state.uploadphoto}`)} className="productimage"></img></center>
            </div>
            <div className="col-2"></div>
            </div>

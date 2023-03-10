@@ -15,7 +15,7 @@ export const DisplayCars = () =>{
                 <div className="cardArr">
                 <div className="card">
                 <button onClick={()=>navigate("/displayproduct",{state:bike})}>
-                <img src={require(`D:/carsimages/${bike.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                <img src={require(`../carsimages/${bike.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                 </button>
                 <div className="card-body">
                     <h5 className="card-title">{bike.setaprice}</h5>

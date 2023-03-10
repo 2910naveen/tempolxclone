@@ -7,6 +7,9 @@ const defaultState = {
     mobiles:[]
 };
 
+export const sendinterestedmailtoseller = createAsyncThunk("sendinterestedmailtoseller",async(mailerdetails)=>
+   await axios.post("http://localhost:5000/olx/sendinterestedmailtoseller",mailerdetails)
+);
 
 export const getProductsFromDB = createAsyncThunk("getProductsFromDB",async ()=>{
     return await axios.get("http://localhost:5000/olx/getallcars").then((res)=>res).catch(err=>console.log(err));

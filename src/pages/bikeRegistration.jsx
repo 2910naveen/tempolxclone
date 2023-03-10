@@ -23,7 +23,8 @@ const MotorCycleRegister = () => {
                                                           city:'',
                                                           neighbourhood:'',
                                                           username:'',
-                                                          mobilenumber:''
+                                                          mobilenumber:'',
+                                                          email:''
                                                         }); 
     
     const handleChange = (e) =>{
@@ -74,7 +75,8 @@ const MotorCycleRegister = () => {
             city:'',
             neighbourhood:'',
             username:'',
-            mobilenumber:''
+            mobilenumber:'',
+            email:''
           })
     }
 
@@ -154,10 +156,11 @@ const MotorCycleRegister = () => {
                     </div>
                     <input type="text" className="form-control" name="mobilenumber" id="mobilenumber" placeholder="EnterMobileNumber" onChange={(e)=>handleChange(e)} value={motorCyclePostDetails.mobilenumber} required />
                     </div>
+                    <input type="text" className="form-control" name="email" id="email" placeholder="EnterEmail" onChange={(e)=>handleChange(e)} value={motorCyclePostDetails.email} required />
                     { click && motorCyclePostDetails.mobilenumber === '' && !submitted ? <p className="displayemptymessage" >Please enter the Mobilenumber</p> : '' }
                 </div>
                 <center><button name="submit" className="btn btn-primary" id="submit" onClick={(e)=>handleSubmit(e)}>Post Now</button></center>
-                { click ? submitMsg ? <p className="displayMsgsuccess">Car detials registered successfully</p> : <p className="displayMsgerror">Please Enter All The Details</p> :''}
+                { click ? submitMsg ? <p className="displayMsgsuccess">Bike detials registered successfully</p> : <p className="displayMsgerror">Please Enter All The Details</p> :''}
                 {console.log(submitMsg)}
             </form>
         </div>
