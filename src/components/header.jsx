@@ -51,10 +51,10 @@ const Header = () =>{
                 <button><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
-                <Link href="">Login</Link>
+                <Link to="/login">Login</Link>
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
-                <Link href="/">Register</Link>
+                <Link to="/register">Register</Link>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-1">
                 <div className="sell">

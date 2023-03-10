@@ -2,6 +2,12 @@
     position:absolute;
 }
 
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .blackeffect{
     position: fixed;
     top: 0;
@@ -45,6 +51,18 @@ button {
     padding-left:100px;
 }
 
+.cardetails{
+   display: inline;
+   padding-right:50px;
+   padding-left:50px;
+   
+}
+
+.carsymbol{
+    margin-left:10px;
+    font-size:20px;
+}
+
 .carsul{
     display:inline-block;
 }
@@ -58,6 +76,34 @@ button {
     padding:3px;
 }
 
+.contactdetails{
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.description{
+    padding-left:20px;
+    font-size:large;
+    font-weight:400;
+}
+.displayMsgsuccess{
+    text-align:center;
+    color:green;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.displayMsgerror{
+    text-align:center;
+    color:red;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.displayemptymessage{
+    color:red;
+}
 .electronics{
     padding-left:30px;
 }
@@ -195,9 +241,8 @@ label {
 }
 
 .location {
-    width: 220px;
-    border: 2px solid black;
-    padding-left:10px ;
+    padding:5px 10px;
+    
 }
 
 .location li{
@@ -277,6 +322,60 @@ label {
     padding-right:20px;
 }
 
+.productimagebg{
+    height: 400px;
+    background-color: #2f2e2e33;
+}
+
+.productimage{
+    height: 350px;
+    background-color: #2f2e2e33;
+    margin-top:25px;
+}
+
+.productadtitle{
+    font-size: 30px;
+    font-weight: 700;
+    padding-top:10px;
+    padding-left:25px;
+}
+
+.productdetailsblock1{
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right:5px;
+}
+
+.registerbackground{ 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 10; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(0,0,0,.8); 
+    transform: translateZ(0);
+}
+
+.registerbox{ 
+    margin: 0 16px; 
+    width: 100%; 
+    display: flex; 
+    box-sizing: border-box; 
+    flex-direction: column; 
+    background-color: white; 
+    width: 400px; 
+    overflow: hidden; 
+    border-radius: 3px;
+    position: relative; 
+    height: 600px; 
+    padding: 16px 20px;
+}
 
 .sell {
     padding: 5px;

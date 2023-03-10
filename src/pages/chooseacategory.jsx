@@ -2,9 +2,12 @@ import React from 'react';
 import '../styles/props.css';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ChooseACategory = () =>{
 
+
+    const navigate = useNavigate();
     const [showitems,setshowitems] = useState({
                                                 showcars:false,
                                                 showmobiles:false,
@@ -22,7 +25,7 @@ const ChooseACategory = () =>{
     return(<>
            {/* Header */}
            <header className="headernormal">
-           <div className="fa-solid fa-arrow-left arrow"></div>
+           <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
            </header>
            <body>
            <p className="post">POST YOUR AD</p>
@@ -32,9 +35,9 @@ const ChooseACategory = () =>{
              <li className='postcacli'><button id="showcars" className="postcacbutton" onClick={(e)=>handleshow(e)}><i className="fa-solid fa-car postcacbuttonicon"></i>OLX Autos(Cars)<i class="fa-sharp fa-solid fa-chevron-right cars"></i></button></li>
              {showitems.showcars?<ul><li className='carregister'><Link to="/carregister">Cars</Link></li></ul>:''}
              <li className='postcacli'><button id="showmobiles" className="postcacbutton" onClick={(e)=>handleshow(e)}><i class="fa-sharp fa-solid fa-mobile postcacbuttonicon"></i>Mobiles<i class="fa-sharp fa-solid fa-chevron-right mobiles"></i></button></li>
-             {showitems.showmobiles?<ul><li>Mobile Phones</li><li>Accessories</li><li>Tablets</li></ul>:''}
+             {showitems.showmobiles?<ul><li><Link to="/mobilephoneregister">MobilePhones</Link></li><li>Accessories</li><li>Tablets</li></ul>:''}
              <li className='postcacli'><button id="showbikes" className="postcacbutton" onClick={(e)=>handleshow(e)}><i class="fa-sharp fa-solid fa-motorcycle postcacbuttonicon"></i>Bikes<i class="fa-sharp fa-solid fa-chevron-right bikes"></i></button></li>
-             {showitems.showbikes?<ul><li>Motorbikes</li><li>Scooties</li><li>Bicycles</li></ul>:''}
+             {showitems.showbikes?<ul><li><Link to="/motorcycleregister">MotorCycles</Link></li><li>Scooties</li><li>Bicycles</li></ul>:''}
              <li className='postcacli'><button id="showelectronics" className="postcacbutton" onClick={(e)=>handleshow(e)}><i class="fa-solid fa-desktop postcacbuttonicon"></i>Electronics & Appliances<i class="fa-sharp fa-solid fa-chevron-right electronics"></i></button></li>
              {showitems.showelectronics?<ul><li>Computer&Laptops</li><li>Cameras&lenses</li><li>ACs</li></ul>:''}
              <li className='postcacli'><button className="postcacbutton"><i class="fa-solid fa-couch postcacbuttonicon"></i>Furniture<i class="fa-sharp fa-solid fa-chevron-right furniture"></i></button></li>
