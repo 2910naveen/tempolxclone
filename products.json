@@ -1,0 +1,43 @@
+{
+    "product1":{
+        "adtitle": "Brio,9yrs,S MT",
+        "brand": "Honda",
+        "city": "Thane",
+        "createdAt": "2023-02-21T15:47:30.000Z",
+        "description": "ADDITIONAL VEHICLE INFORMATION: Accidental: No, Adjustable External Mirror: Manual,\nAir Conditioning: With Heater, Number of Airbags: None, Aux Compatibility: Yes",
+        "fuel": "PETROL",
+        "id": 1,
+        "kmdriven": "",
+        "mobilenumber": "7796000333",
+        "neighbourhood": "Kalyan",
+        "noofowners": "2nd",
+        "setaprice": "",
+        "state": "Maharastra",
+        "transmission": "Manual",
+        "updatedAt": "2023-02-21T15:47:30.000Z",
+        "uploadphoto": "hondabrio.webp",
+        "username": "AngelMotors",
+        "year": "2014"
+    },
+    "product2":{
+        "adtitle": "Mahindra Kuv 100 (2016) 2016-2017 mFALCON D75 K8",
+        "brand": "Mahindra",
+        "city": "Mumbai",
+        "createdAt": "2023-02-21T15:53:59.000Z",
+        "description": "ADDITIONAL VEHICLE INFORMATION:\nColor: White\nInsurance Type: No Insurance\nMake Month: July\nRegistration Place: MH\nExchange: Yes\nFinance: Yes",
+        "fuel": "DIESEL",
+        "id": 2,
+        "kmdriven": "56000.0 KM",
+        "mobilenumber": "7666448978",
+        "neighbourhood": "Virar West",
+        "noofowners": "1st",
+        "setaprice": "₹ 4,89,000",
+        "state": "Maharashtra",
+        "transmission": "Manual",
+        "updatedAt": "2023-02-21T15:53:59.000Z",
+        "uploadphoto": "kuvfalcon.webp",
+        "username": "Kuldeep Gandhi",
+        "year": "2016"
+    }
+
+}

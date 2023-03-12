@@ -21,6 +21,7 @@ export const DisplayMobiles = () =>{
                     <h5 className="card-title">{mobile.setaprice}</h5>
                     <p className="card-text">{mobile.brand}-{mobile.kmdriven}</p>
                     <p className="card-text">{mobile.adtitle}</p>
+                    <p className="postedAt">PostedOn:{mobile.createdAt}</p>
                 </div>
                 </div>
                 </div>

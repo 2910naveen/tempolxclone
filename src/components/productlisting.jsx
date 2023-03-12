@@ -15,6 +15,8 @@ const ProductListing = () => {
                       {id:2,productlabel:"MotorCycles",path:'/rendermotorcycles'},
                       ];
     const [reduxProducts,setReduxProducts] = useState([]);
+    const [isLocation,setIsLocation] = useState(false);
+    const [isBrand,setIsBrand] = useState(false);
     const dispatch = useDispatch();
     const {user,logout} = useCustomAuth();
     var cars = useSelector(state=>state.productreducer.products);
@@ -37,25 +39,44 @@ const ProductListing = () => {
     })
 
     const handleChange = (e)=>{
-        console.log(e.target.value.toUpperCase());
         let newinputSelects = {...inputSelects};
         newinputSelects[e.target.name] = e.target.value;
         setInputSelects(newinputSelects);
+        if(e.target.name === "location")
+        {
+            setLocation(e.target.value);
+        }
+        else
+        {
+            searchProduct(e.target.value);
+        }
     }
     
     const setLocation = (locationname)=>{
+        if(locationname !== '')
+        {
+            setIsLocation(true);
+        }
+        else
+        {
+            setIsLocation(false);
+        }
         let newinputSelects = {...inputSelects};
         newinputSelects["location"] = locationname;
         setInputSelects(newinputSelects);
-        console.log(allproducts);
-        allproducts = allproducts.filter((product)=>product.state === locationname);
+        allproducts = allproducts.filter((product)=>product.state.toUpperCase() === locationname.toUpperCase());
         setReduxProducts(allproducts);
-        console.log(allproducts);
     }
 
     const searchProduct = (brand)=>{
-
-        console.log(brand);
+        if(brand !== '')
+        {
+            setIsBrand(true);
+        }
+        else
+        {
+            setIsBrand(false);
+        }
         allproducts = allproducts.filter((product)=>product.brand.toUpperCase().trim() === brand.toUpperCase());
         setReduxProducts(allproducts);
     }
@@ -110,7 +131,7 @@ const ProductListing = () => {
             </div>
         </div>
         <div className="listingdisplay">
-            <ProductComponent allProducts={allproducts} reduxProducts={reduxProducts}/>
+            <ProductComponent allProducts={allproducts} reduxProducts={reduxProducts} isLocation={isLocation} isBrand={isBrand} />
         </div>
     </>)
 };

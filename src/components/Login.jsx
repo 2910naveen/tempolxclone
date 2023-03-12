@@ -5,6 +5,7 @@ import {useState} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { findregistereduserbyemail } from '../Redux/userSlice';
 import {sendotpmailtoregistereduser} from '../Redux/userSlice';
+import axios from 'axios';
 
 const Login = () =>{
 
@@ -27,36 +28,38 @@ const Login = () =>{
       else
       {
         setIsValid(true);
-        await dispatch(findregistereduserbyemail(email));
-        if(registeredUser && registeredUser.length>0)
-        {
-           const verified = registeredUser.find((usr)=>usr.status === 'verified');
-           console.log(verified);
-           if(Object.keys(verified).length>0)
-           {
-            setIsRegistered(true);
-            console.log("inside if block");
-            const  generateOTP = () => {
-          
-              // Declare a digits variable 
-              // which stores all digits
-              var digits = '0123456789';
-              let OTP = '';
-              for (let i = 0; i < 6; i++ )
-              {
-                  OTP += digits[Math.floor(Math.random() * 10)];
+        // await dispatch(findregistereduserbyemail(email));
+         const user = await axios.get(`http://localhost:5000/olx/findregistereduserbyemail/${email}`)
+          if(user.data && user.data.data.length>0)
+          {
+             const verified = user.data.data.find((usr)=>usr.status === 'verified');
+             console.log(verified);
+             if(Object.keys(verified).length>0)
+             {
+              setIsRegistered(true);
+              console.log("inside if block");
+              const  generateOTP = () => {
+            
+                // Declare a digits variable 
+                // which stores all digits
+                var digits = '0123456789';
+                let OTP = '';
+                for (let i = 0; i < 6; i++ )
+                {
+                    OTP += digits[Math.floor(Math.random() * 10)];
+                }
+                return OTP;
               }
-              return OTP;
-            }
-            const otp = generateOTP();
-            navigate("/enterotp",{state:{email:email,otp:otp}});
-            await dispatch(sendotpmailtoregistereduser({email:email,otp:otp}));
-           }
-           else
-           {
-             setIsRegistered(false);
-           }
-        }
+              const otp = generateOTP();
+              navigate("/enterotp",{state:{email:email,otp:otp}});
+              await dispatch(sendotpmailtoregistereduser({email:email,otp:otp}));
+             }
+             else
+             {
+               setIsRegistered(false);
+             }
+          }
+  
       }
     }
 

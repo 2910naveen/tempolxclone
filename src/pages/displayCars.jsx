@@ -22,6 +22,7 @@ export const DisplayCars = () =>{
                     <h5 className="card-title">{car.setaprice}</h5>
                     <p className="card-text">{car.brand}-{car.kmdriven}</p>
                     <p className="card-text">{car.adtitle}</p>
+                    <p className="postedAt">PostedOn:{car.createdAt}</p>
                 </div>
                 </div>
                 </div>

@@ -17,7 +17,12 @@ export const sendotpmailtoregistereduser = createAsyncThunk("sendotpmailtoregist
 const UserSlice = createSlice({
     name:"userSlice",
     initialState:defaultState,
-    reducers:{},
+    reducers:{
+        removeUser:(state,action)=>{
+            state.user=[];
+        }
+
+    },
     extraReducers:(builder)=>{
        builder.addCase(findregistereduserbyemail.fulfilled,(state,action)=>
        {
@@ -28,3 +33,4 @@ const UserSlice = createSlice({
 });
 
 export default UserSlice.reducer;
+export const {removeUser} = UserSlice.actions;

@@ -21,6 +21,7 @@ export const DisplayCars = () =>{
                     <h5 className="card-title">{bike.setaprice}</h5>
                     <p className="card-text">{bike.brand}-{bike.kmdriven}</p>
                     <p className="card-text">{bike.adtitle}</p>
+                    <p className="postedAt">PostedOn:{bike.createdAt.substring(0,bike.createdAt.lastIndexOf('T'))}</p>
                 </div>
                 </div>
                 </div>

@@ -21,6 +21,19 @@ a {
     background: rgba(0,0,0,.8);
 }
 
+.card-text{
+    color:grey;
+    font-size:15px;
+    margin:0px 0px;
+}
+
+.postedAt{
+    color:grey;
+    font-size:10px;
+    margin:0px 0px;
+    text-align:center;
+    font-weight: 600;
+}
 .blackeffect .card{
     margin: 0 16px;
     width: 100%;
