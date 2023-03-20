@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import '../styles/props.css';
+import '../styles/logo.css';
 
 export const DisplayCars = () =>{
     
@@ -18,7 +19,7 @@ export const DisplayCars = () =>{
                 <img src={require(`../carsimages/${bike.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                 </button>
                 <div className="card-body">
-                    <h5 className="card-title">{bike.setaprice}</h5>
+                    <h5 className="card-title">₹{bike.setaprice.lastIndexOf('₹') === 0 ? bike.setaprice.substring(1) : bike.setaprice}</h5>
                     <p className="card-text">{bike.brand}-{bike.kmdriven}</p>
                     <p className="card-text">{bike.adtitle}</p>
                     <p className="postedAt">PostedOn:{bike.createdAt.substring(0,bike.createdAt.lastIndexOf('T'))}</p>
@@ -33,6 +34,7 @@ export const DisplayCars = () =>{
             {/* Header */}
             <header className="headernormal">
                  <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
+                 <img src={require('../logo/final-logo-greybg.jpg')} className="logo"></img>
             </header>
             <p className="post">MotorCycles</p>
             {renderBikeList}

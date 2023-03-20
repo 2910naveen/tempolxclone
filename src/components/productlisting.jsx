@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 import { useSelector,useDispatch} from 'react-redux';
 import { getProductsFromDB,getmotorcycledetails, getmobilephonesdetails} from '../Redux/productSlice';
 import { useCustomAuth } from './authContext';
+import EmailPopUp from '../pages/emailToSeller';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProductListing = () => {
@@ -17,6 +19,9 @@ const ProductListing = () => {
     const [reduxProducts,setReduxProducts] = useState([]);
     const [isLocation,setIsLocation] = useState(false);
     const [isBrand,setIsBrand] = useState(false);
+    const [showModal,setShowModal] = useState(false);
+    const [product,setProduct] = useState({});
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {user,logout} = useCustomAuth();
     var cars = useSelector(state=>state.productreducer.products);
@@ -37,7 +42,7 @@ const ProductListing = () => {
     const [inputSelects,setInputSelects] = useState({
         location:'',product:''
     })
-
+    
     const handleChange = (e)=>{
         let newinputSelects = {...inputSelects};
         newinputSelects[e.target.name] = e.target.value;
@@ -64,7 +69,7 @@ const ProductListing = () => {
         let newinputSelects = {...inputSelects};
         newinputSelects["location"] = locationname;
         setInputSelects(newinputSelects);
-        allproducts = allproducts.filter((product)=>product.state.toUpperCase() === locationname.toUpperCase());
+        allproducts = allproducts.filter((product)=>product.state.toUpperCase().includes(locationname.toUpperCase()));
         setReduxProducts(allproducts);
     }
 
@@ -77,14 +82,28 @@ const ProductListing = () => {
         {
             setIsBrand(false);
         }
-        allproducts = allproducts.filter((product)=>product.brand.toUpperCase().trim() === brand.toUpperCase());
+        allproducts = allproducts.filter((product)=>product.brand.toUpperCase().trim().includes(brand.toUpperCase()));
         setReduxProducts(allproducts);
     }
 
+    const displayPopUpFunc = (product)=>{
+        if(!user)
+        {
+           navigate("/login");
+        }
+        else
+        {
+           setShowModal(true);
+        }
+        setProduct(product);
+    }
     return (<>
         {/* Header Component */}
         <div className="header fixed row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                <img src={require('../logo/final-logo-greybg.jpg')} style={{height:"60px"}}></img>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-3">
                 <div className="location">
                     {/* <i className="fa-solid fa-magnifying-glass"></i> */}
                     <input name="location" type="text" placeholder="location" onChange={(e) => handleChange(e)} value={inputSelects.location}></input>
@@ -97,8 +116,8 @@ const ProductListing = () => {
                     </ul> : ''}
                 </div>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5 itemsearch">
-                <input name="product" type="text" placeholder="Find Cars,Mobile Phones and more..." value={inputSelects.product} onChange={(e) => handleChange(e)}></input>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 itemsearch">
+                <input name="product" type="text" placeholder="Find Cars,Mobile Phones and more...by Brand" value={inputSelects.product} onChange={(e) => handleChange(e)}></input>
                 <button onClick={()=>searchProduct(inputSelects.product)}><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
@@ -131,7 +150,10 @@ const ProductListing = () => {
             </div>
         </div>
         <div className="listingdisplay">
-            <ProductComponent allProducts={allproducts} reduxProducts={reduxProducts} isLocation={isLocation} isBrand={isBrand} />
+            <ProductComponent allProducts={allproducts} reduxProducts={reduxProducts} isLocation={isLocation} isBrand={isBrand} displayPopUpFunc={displayPopUpFunc}/>
+        </div>
+        <div className="col-12" style={{top:0,left:0}}>
+            <EmailPopUp showModal={showModal} setShowModal={setShowModal} product={product}/>
         </div>
     </>)
 };

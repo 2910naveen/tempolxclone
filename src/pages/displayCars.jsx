@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductsFromDB } from "../Redux/productSlice";
 import { useNavigate } from "react-router-dom";
 import '../styles/props.css';
+import '../styles/logo.css';
 
 export const DisplayCars = () =>{
     
@@ -19,10 +20,10 @@ export const DisplayCars = () =>{
                 <img src={require(`../carsimages/${car.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                 </button>
                 <div className="card-body">
-                    <h5 className="card-title">{car.setaprice}</h5>
+                    <h5 className="card-title">₹{car.setaprice.lastIndexOf('₹') === 0 ? car.setaprice.substring(1) : car.setaprice}</h5>
                     <p className="card-text">{car.brand}-{car.kmdriven}</p>
                     <p className="card-text">{car.adtitle}</p>
-                    <p className="postedAt">PostedOn:{car.createdAt}</p>
+                    <p className="postedAt">PostedOn:{car.createdAt.substring(0,car.createdAt.lastIndexOf('T'))}</p>
                 </div>
                 </div>
                 </div>
@@ -34,6 +35,7 @@ export const DisplayCars = () =>{
             {/* Header */}
             <header className="headernormal">
                  <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
+                 <img src={require('../logo/final-logo-greybg.jpg')} className="logo"></img>
             </header>
             <p className="post">Cars</p>
             {renderCarList}

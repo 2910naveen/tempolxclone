@@ -8,7 +8,10 @@ const defaultState = {
 };
 
 export const sendinterestedmailtoseller = createAsyncThunk("sendinterestedmailtoseller",async(mailerdetails)=>
-   await axios.post("http://localhost:5000/olx/sendinterestedmailtoseller",mailerdetails)
+  {
+    console.log(mailerdetails);
+    await axios.post("http://localhost:5000/olx/sendinterestedmailtoseller",mailerdetails)
+  }
 );
 
 export const getProductsFromDB = createAsyncThunk("getProductsFromDB",async ()=>{

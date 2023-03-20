@@ -18,7 +18,7 @@ const ComponentDetails = () =>{
            <div className="row">
            <div className="col-2"></div>
            <div className="productimagebg col-8">
-             <center><img src={require(`C:/Users/incedo2/Documents/carsimages/${location.state.uploadphoto}`)} className="productimage"></img></center>
+             <center><img src={require(`../carsimages/${location.state.uploadphoto}`)} className="productimage"></img></center>
            </div>
            <div className="col-2"></div>
            </div>
@@ -32,7 +32,7 @@ const ComponentDetails = () =>{
             </div>
             <div className="productdetailsblock1 col-2">
               <h2 style={{"color":"green","fontWeight":"bold"}}>Price</h2>
-              <p className="productadtitle">{location.state.setaprice}</p>
+              <p className="productadtitle">₹{location.state.setaprice.charAt(0) === '₹' ? location.state.setaprice.substring(1):location.state.setaprice}</p>
             </div>
             <div className="col-2"></div>
            </div>

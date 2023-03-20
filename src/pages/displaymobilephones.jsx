@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import '../styles/props.css';
+import '../styles/logo.css';
 
 export const DisplayMobiles = () =>{
     
@@ -18,10 +19,10 @@ export const DisplayMobiles = () =>{
                 <img src={require(`../carsimages/${mobile.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                 </button>
                 <div className="card-body">
-                    <h5 className="card-title">{mobile.setaprice}</h5>
+                    <h5 className="card-title">₹{mobile.setaprice.lastIndexOf('₹') === 0 ? mobile.setaprice.substring(1) : mobile.setaprice}</h5>
                     <p className="card-text">{mobile.brand}-{mobile.kmdriven}</p>
                     <p className="card-text">{mobile.adtitle}</p>
-                    <p className="postedAt">PostedOn:{mobile.createdAt}</p>
+                    <p className="postedAt">PostedOn:{mobile.createdAt.substring(0,mobile.createdAt.lastIndexOf('T'))}</p>
                 </div>
                 </div>
                 </div>
@@ -33,6 +34,7 @@ export const DisplayMobiles = () =>{
             {/* Header */}
             <header className="headernormal">
                  <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
+                 <img src={require('../logo/final-logo-greybg.jpg')} className="logo"></img>
             </header>
             <p className="post">Mobiles</p>
             {renderMobileList}

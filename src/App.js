@@ -15,6 +15,8 @@ import RenderMobiles from './pages/displaymobilephones';
 import RenderBikes from './pages/displaymotorcycles';
 import { AuthContext } from './components/authContext';
 import RequiredAuth from './components/requiredAuth';
+import EmailToSeller from './pages/emailToSeller';
+import Footer from './components/footer';
 
 
 function App() {
@@ -39,7 +41,9 @@ function App() {
          <Route path="/rendercars" element={<RenderCars />} />
          <Route path="/rendermobilephones" element={<RenderMobiles />} />
          <Route path="/rendermotorcycles" element={<RenderBikes />} />
+         <Route path="/emailtoseller" element={<EmailToSeller/>} />
        </Routes>
+       <Footer/>
      </BrowserRouter>
      </AuthContext>
     </div>

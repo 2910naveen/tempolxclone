@@ -5,38 +5,37 @@ import {useState} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { findregistereduserbyemail } from '../Redux/userSlice';
 import {sendotpmailtoregistereduser} from '../Redux/userSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+
 
 const Login = () =>{
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [email,setEmail] = useState();
-    const [isClick,setIsClick] = useState(false);
-    const [isValid,setIsValid] = useState(false);
-    const [isRegistered,setIsRegistered] = useState(false);
+    const [msg,setMsg] = useState('');
     
-    var registeredUser = useSelector(state=>state.userreducer.user.data && state.userreducer.user.data.data);
-  
     const handleNext = async ()=>{
-      setIsClick(true);
       //try to check email with regex
-      if(email === '')
+      if(email === undefined)
       {
-         setIsValid(false);
+         setMsg("Please Enter The Email");
       }
       else
       {
-        setIsValid(true);
+       
         // await dispatch(findregistereduserbyemail(email));
          const user = await axios.get(`http://localhost:5000/olx/findregistereduserbyemail/${email}`)
+         console.log(user);
           if(user.data && user.data.data.length>0)
           {
+             console.log("inside if");
              const verified = user.data.data.find((usr)=>usr.status === 'verified');
              console.log(verified);
              if(Object.keys(verified).length>0)
              {
-              setIsRegistered(true);
               console.log("inside if block");
               const  generateOTP = () => {
             
@@ -51,14 +50,23 @@ const Login = () =>{
                 return OTP;
               }
               const otp = generateOTP();
-              navigate("/enterotp",{state:{email:email,otp:otp}});
-              await dispatch(sendotpmailtoregistereduser({email:email,otp:otp}));
-             }
-             else
-             {
-               setIsRegistered(false);
+              setTimeout(async ()=>{
+                navigate("/enterotp",{state:{email:email,otp:otp}});
+              },5000);
+              await dispatch(sendotpmailtoregistereduser({email:email,otp:otp})).then(res=>{
+                toast.success('OTP sent to Your mailSuccessfully!', {
+                  position: toast.POSITION.TOP_LEFT
+              });
+              });
+              
+              
              }
           }
+          else
+             {
+                console.log("inside else");
+                setMsg("Please Register First");
+             }
   
       }
     }
@@ -73,10 +81,11 @@ const Login = () =>{
                 <p className="loginnote">If you are a new user please select any other login option from previous page.</p>
                 <button className="loginbutton" onClick={()=>handleNext()}>Next</button>
                 <p style={{"padding-left":"15px","width":"90%","textAlign":"center"}}>Your email is never shared with external parties nor do we use it to spam you in any way.</p>
-                { isClick ? isValid ? isRegistered ? '':<p style={{'color':'red',"fontSize":'20px','fontWeight':'bolder','textAlign':'center'}}>Please First Register To Login</p>:<p style={{'color':'red',"fontSize":'20px','fontWeight':'bolder','textAlign':'center'}}>Please Enter The Email</p> : ''}
+                { <p style={{'color':'red',"fontSize":'20px','fontWeight':'bolder','textAlign':'center'}}>{msg}</p>}
 
             </div>
           </div>
+          <ToastContainer />
           </>
 };
 

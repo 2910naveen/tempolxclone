@@ -40,8 +40,10 @@ const Register = () =>
 
         } 
     }; 
-    return( <div className="registerbackground"> 
+    return(
+            <div className="registerbackground"> 
             <div className='registerbox'> 
+            <button className="fa-sharp fa-solid fa-arrow-left logini" onClick={()=>navigate(-1)}></button>
             <h4 className="h4class" style={{"marginTop":"50px"}}>Register with your Email</h4>
              <input style={{"marginTop":"50px","padding":"10px 10px","border":"2px solid skyblue"}} className="form-control" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)}></input> 
              <p className="loginnote" style={{"backgroundColor":"yellow",padding:"10px 10px","marginTop":"30px"}}>An OTP will be send to your email which enables you to register to this app</p> 

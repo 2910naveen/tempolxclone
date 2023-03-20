@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { postcardetails } from '../Redux/productSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import '../styles/logo.css';
 
 const CarRegister = () => {
 
@@ -91,6 +92,7 @@ const CarRegister = () => {
         {/* Header */}
         <header className="headernormal">
             <button className="fa-solid fa-arrow-left arrow" onClick={()=>navigate(-1)}></button>
+            <img src={require('../logo/final-logo-greybg.jpg')} className="logo"></img>
         </header>
         {/* form */}
         <p className="post">POST YOUR AD</p>

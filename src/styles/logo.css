@@ -1,0 +1,10 @@
+@media screen and (min-width: 1024px){
+    /* your CSS here */
+    .logo {
+      margin-left: 425px;
+      width:200px;
+      height:60px;
+    }
+  }
+
+  

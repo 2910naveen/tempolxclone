@@ -11,7 +11,7 @@ const ProductComponent = (props) => {
     // var bikes = [];
     // var mobiles = [];
     const navigate = useNavigate();
-    const {allProducts,reduxProducts,isLocation,isBrand} = props;
+    const {allProducts,reduxProducts,isLocation,isBrand,displayPopUpFunc} = props;
     // products = useSelector(state=>state.productreducer.products);
     // bikes = useSelector(state=>state.productreducer.bikes);
     // mobiles = useSelector(state=>state.productreducer.mobiles);
@@ -40,7 +40,7 @@ const ProductComponent = (props) => {
                         <img src={require(`../carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                         </button>
                         <div className="card-body">
-                            <h5 className="card-title">{item.setaprice}<span><button title="interested" style={{'marginLeft':'120px',"border":'1px solid black',"backgroundColor":"#f226491f","borderRadius":"5px"}} onClick={()=>dispatch(sendinterestedmailtoseller({mailer:user,receiver:item.email,product:item}))}><i class="fa-solid fa-heart"></i></button></span></h5>
+                            <h5 className="card-title">₹{item.setaprice.lastIndexOf('₹') === 0 ? item.setaprice.substring(1) : item.setaprice}<span><button title="interested" style={{'marginLeft':'120px',"border":'1px solid black',"backgroundColor":"#f226491f","borderRadius":"5px"}} onClick={()=>displayPopUpFunc(item)}><i class="fa-solid fa-heart"></i></button></span></h5>
                             <p className="card-text">{item.brand}-{item.kmdriven}</p>
                             <p className="card-text">{item.adtitle}</p>
                             <p className="postedAt">PostedOn:{item.createdAt.substring(0,item.createdAt.lastIndexOf('T'))}</p>
@@ -59,10 +59,10 @@ const ProductComponent = (props) => {
                         <div className="cardArr">
                         <div className="card">
                         <button onClick={()=>navigate("/displayproduct",{state:item})}>
-                        <img src={require(`C:/Users/incedo2/Documents/carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
+                        <img src={require(`../carsimages/${item.uploadphoto}`)} style={{"height":"200px"}}class="card-img-top" alt="uploadimage" />
                         </button>
                         <div className="card-body">
-                            <h5 className="card-title">{item.setaprice}</h5>
+                            <h5 className="card-title">₹{item.setaprice.lastIndexOf('₹') === 0 ? item.setaprice.substring(1) : item.setaprice}<span><button title="interested" style={{'marginLeft':'120px',"border":'1px solid black',"backgroundColor":"#f226491f","borderRadius":"5px"}} onClick={()=>displayPopUpFunc(item)}><i class="fa-solid fa-heart"></i></button></span></h5>
                             <p className="card-text">{item.brand}-{item.kmdriven}</p>
                             <p className="card-text">{item.adtitle}</p>
                             <p className="postedAt">PostedOn:{item.createdAt.substring(0,item.createdAt.lastIndexOf('T'))}</p>

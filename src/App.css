@@ -22,6 +22,12 @@
   padding:0px 18%;
 }
 
+.footer{
+  height:50px;
+  background-color: rgb(16, 16, 65);
+  width:100%;
+}
+
 /* .App {
   text-align: center;
 }
