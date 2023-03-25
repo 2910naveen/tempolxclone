@@ -23,16 +23,10 @@ const Register = () =>
         { 
             setIsSubmit(true);
             const  generateOTP = () => {
-          
-                // Declare a digits variable 
-                // which stores all digits
-                var digits = '0123456789';
-                let OTP = '';
-                for (let i = 0; i < 6; i++ )
-                {
-                    OTP += digits[Math.floor(Math.random() * 10)];
-                }
-                return OTP;
+                var OTP = new Uint32Array(1);
+                OTP = crypto.getRandomValues(OTP);
+                OTP = '0.' + OTP[0];
+                return Math.floor(OTP*1000000);
             }
             const otp = generateOTP();
             await dispatch(postUserRegisterDetails({email:email,otp:otp}));
