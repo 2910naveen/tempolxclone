@@ -8,6 +8,7 @@ import { getProductsFromDB,getmotorcycledetails, getmobilephonesdetails} from '.
 import { useCustomAuth } from './authContext';
 import EmailPopUp from '../pages/emailToSeller';
 import { useNavigate } from 'react-router-dom';
+import LoginProfile from './loginProfileComponent';
 
 
 const ProductListing = () => {
@@ -116,15 +117,19 @@ const ProductListing = () => {
                     </ul> : ''}
                 </div>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 itemsearch">
-                <input name="product" type="text" placeholder="Find Cars,Mobile Phones and more...by Brand" value={inputSelects.product} onChange={(e) => handleChange(e)}></input>
+            {user ? <><div className="col-xs-12 col-sm-12 col-md-12 col-lg-3 itemsearch">
+                <input name="product" type="text" placeholder="Find Products...by Brand" value={inputSelects.product} onChange={(e) => handleChange(e)}></input>
+                <button onClick={()=>searchProduct(inputSelects.product)}><i className="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div className="col-xs-6 col-sm-6 col-md-4 col-lg-2"> 
+                <LoginProfile/>
+            </div></> :<><div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 itemsearch">
+                <input name="product" type="text" placeholder="Find Cars,Mobiles and Bikes...by Brand" value={inputSelects.product} onChange={(e) => handleChange(e)}></input>
                 <button onClick={()=>searchProduct(inputSelects.product)}><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
-                {
-                    user ? <Link to="/" onClick={()=>logout()}>Logout</Link> :<Link to='/login'>Login</Link>
-                }
-            </div>
+            <Link to="/login">Login</Link>
+            </div></>}
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-1">
                 <Link to="/register">Register</Link>
             </div>

@@ -217,6 +217,33 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 5px;
     background-color: rgb(143, 244, 143);
 }
+
+.loginprofile{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background-color:blue;
+    color:white;
+    text-align:center;
+    padding-top:6px;
+    font-weight:bolder;
+    font-size:17px;
+    display:inline-block;
+    margin-right:10px;
+}
+
+.profiledisplay{
+    padding:0px 0px;
+}
+
+.profiledisplay:click{
+    transform: rotate(180deg);
+}
+
+.profiledisplay:hover{
+    transform: rotate(180deg);
+}
+
 input {
     padding: 3px;
     border: 0px;

@@ -17,6 +17,7 @@ import { AuthContext } from './components/authContext';
 import RequiredAuth from './components/requiredAuth';
 import EmailToSeller from './pages/emailToSeller';
 import Footer from './components/footer';
+import LoginProfile from './components/loginProfileComponent';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   const loc = window.location.href;
   const arr = loc.split('/');
   const path = arr[arr.length-1];
+  
   return (
     <div className="App">
      <AuthContext>
@@ -42,6 +44,7 @@ function App() {
          <Route path="/rendermobilephones" element={<RenderMobiles />} />
          <Route path="/rendermotorcycles" element={<RenderBikes />} />
          <Route path="/emailtoseller" element={<EmailToSeller/>} />
+         <Route path="/loginprofile" element={<LoginProfile/>} />
        </Routes>
        <Footer/>
      </BrowserRouter>
